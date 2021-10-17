@@ -17,7 +17,7 @@ const postReducer = (state = initialState, action) => {
     case GET_POSTS:
       return {
         ...state,
-        contactList: action.data,
+        postList: action.data,
       };
     default:
       return state;
