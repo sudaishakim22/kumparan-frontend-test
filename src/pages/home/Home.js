@@ -1,50 +1,32 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React from "react";
 
 // from components
 import Header from "../../components/header/Header";
 import Feed from "../../components/feed/Feed";
 import Sidebar from "../../components/sidebar/Sidebar";
 
-// from services and action
-import { userServices } from "../../redux/services/userService";
-import { getAllUsers } from "../../redux/actions/userAction";
-
 // react-router-dom
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 // css
 import "./home.css";
+import Albums from "../../components/albums/Albums";
+import Photos from "../../components/photos/Photos";
 
 const Home = () => {
-  const dispatch = useDispatch();
-  const usersState = useSelector((state) => state.users);
-  const [users, setUsers] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      setLoading(true);
-      const res = await userServices.getAllUsers();
-      if (res) {
-        const usersData = res.data.filter((user) => user.id !== 1);
-        setUsers(usersData);
-        setLoading(false);
-      } else {
-        setLoading(true);
-      }
-    };
-    fetchUser();
-    dispatch(getAllUsers());
-  }, []);
-
   return (
     <>
       <Header />
       <div className="homeContainer">
         <Router>
-          <Sidebar users={loading ? [] : users} />
+          <Sidebar />
           <Switch>
+            <Route path="/my-albums/:id">
+              <Photos />
+            </Route>
+            <Route path="/my-albums">
+              <Albums />
+            </Route>
             <Route path="/:id">
               <Feed />
             </Route>

@@ -18,12 +18,7 @@ const Header = () => {
           />
         </div>
       </div>
-      <div className="headerRight">
-        <div className="headerLinks">
-          <span className="headerLink">Homepage</span>
-          <span className="headerLink">Profile</span>
-        </div>
-      </div>
+      <div className="headerRight"></div>
     </div>
   );
 };

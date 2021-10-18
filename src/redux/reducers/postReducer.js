@@ -19,6 +19,16 @@ const postReducer = (state = initialState, action) => {
         ...state,
         postList: action.data,
       };
+    case ADD_POST:
+      return {
+        ...state,
+        addResult: action.data,
+      };
+    case DELETE_POST:
+      return {
+        ...state,
+        deleteResult: action.data,
+      };
     default:
       return state;
   }

@@ -6,5 +6,6 @@ export const getAllUsers = () => {
   return async (dispatch) => {
     const response = await userServices.getAllUsers();
     dispatch({ type: GET_ALL_USERS, data: response });
+    return response;
   };
 };

@@ -1,0 +1,16 @@
+.albums {
+  flex: 5.5;
+}
+
+.albumsWrapper {
+  padding: 20px;
+}
+
+.albumsCardWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
